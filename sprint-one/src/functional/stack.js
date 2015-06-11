@@ -11,7 +11,6 @@ var Stack = function(){
   someInstance.push = function(value){
     someInstance[someInstance.size()] = value
     // console.log(someInstance.size())
-    console.log(someInstance)
     // someInstance.size.len ++
   };
 
