@@ -29,24 +29,21 @@ var LinkedList = function(){
   list.contains = function(target){
     var doesContain = false
     var previousNode = list.head
+    var checkedLast = false
 
 
-    while (doesContain !== true){
-      console.log("Checking item")
-      // console.log(previousNode)
-      // console.log(target)
-      console.log("Current Nodes Value : " + previousNode.value)
-      console.log("What we are looking for : " + target)
+    while (!checkedLast && !doesContain ){
+      if(previousNode.next === null){
+        checkedLast = true
+      }
+
       if (previousNode.value !== target){
-        console.log("Moving to the next node")
         previousNode = previousNode.next
-        console.log(previousNode)
       } else {
-        console.log("It is here")
         doesContain = true
       }
+
     }
-    console.log("We are returning : " + doesContain)
     return doesContain
   };
 
