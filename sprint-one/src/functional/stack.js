@@ -25,7 +25,6 @@ var Stack = function(){
   };
 
   someInstance.size = function(){
-    console.log(len)
     return len
   };
 

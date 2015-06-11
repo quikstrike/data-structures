@@ -1,27 +1,28 @@
 var Stack = function() {
   var newStack = {}
   newStack.len = 0
-  newStack = _.extend(newStack, Stack.stackMethods)
+  newStack.storage = {}
+  newStack = _.extend(newStack, stackMethods)
   return newStack
 
 };
 
-Stack.stackMethods = {};
+var stackMethods = {};
 
-Stack.stackMethods.size = function(){
+stackMethods.size = function(){
   return this.len
 }
 
-Stack.stackMethods.push = function(value) {
-  this[this.size()] = value
+stackMethods.push = function(value) {
+  this.storage[this.len] = value
   this.len++
 }
 
-Stack.stackMethods.pop = function() {
-  if (this[this.len - 1] !== undefined) {
+stackMethods.pop = function() {
+  if (this.storage[this.len - 1] !== undefined) {
     var removed;
-    removed = this[this.len - 1]
-    delete this[this.len-1]
+    removed = this.storage[this.len - 1]
+    delete this.storage[this.len-1]
     this.len--
     return removed
   }
