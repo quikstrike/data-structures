@@ -62,3 +62,6 @@ var Node = function(value){
 /*
  * Complexity: What is the time complexity of the above functions?
  */
+
+// addToTail, and removeHead are both constant
+//contains is O(n) , or linear function.
