@@ -28,7 +28,6 @@ treeMethods.contains = function(target){
   if (target === this.value) {
       foundStatus = true
   }
-  debugger
    //while target has not been found
     //rerun contains on each item in array. if found, function ends.
   var recurse = function(collection){
