@@ -14,22 +14,22 @@
 var LimitedArray = function(limit){
   var storage = [];
 
-  var limitedArray = {};
-  limitedArray.get = function(index){
+  var limitedArray = {};//hash table
+  limitedArray.get = function(index){ //returns the value of specified index. use this for remove
     checkLimit(index);
     return storage[index];
   };
-  limitedArray.set = function(index, value){
+  limitedArray.set = function(index, value){ //sets the "last name" to the "first name" in its index. use this for add
     checkLimit(index);
     storage[index] = value;
   };
-  limitedArray.each = function(callback){
+  limitedArray.each = function(callback){ //goes through each "last name" in the hash table and applies a function to it
     for(var i = 0; i < storage.length; i++){
       callback(storage[i], i, storage);
     }
   };
 
-  var checkLimit = function(index){
+  var checkLimit = function(index){ //checks if index is valid. we should run this everytime we generate a new limit. (already being called in get, set)
     if(typeof index !== 'number'){ throw new Error('setter requires a numeric index for its first argument'); }
     if(limit <= index){ throw new Error('Error trying to access an over-the-limit index'); }
   };
@@ -47,7 +47,7 @@ var getIndexBelowMaxForKey = function(str, max){
     hash = hash & hash; // Convert to 32bit integer
     hash = Math.abs(hash);
   }
-  return hash % max;
+  return hash % max; //returns index (supposed to be in range of (0, limit)
 };
 
 /*
